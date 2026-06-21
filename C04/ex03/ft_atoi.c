@@ -6,7 +6,7 @@
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:07:25 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/20 22:46:44 by fqussay          ###   ########.fr       */
+/*   Updated: 2026/06/21 22:40:52 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	l = 0;
 	k = 1;
-	while (str[i] == 32 || str[i] == '\t')
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		++i;
 	while (str[i] == 45 || str[i] == 43)
 	{

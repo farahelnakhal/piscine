@@ -6,7 +6,7 @@
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 22:28:35 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/21 22:31:11 by fqussay          ###   ########.fr       */
+/*   Updated: 2026/06/21 22:40:01 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,13 @@ int	ft_is_prime(int nb)
 {
 	int	i;
 
-	i = 1;
-	if (nb == 0 || nb == 1)
-	{
+	if (nb < 2)
 		return (0);
-	}
-	while (i < nb / 2)
+	i = 2;
+	while (i < (nb / 2) + 1)
 	{
 		if (nb % i == 0)
-		{
 			return (0);
-		}
 		i++;
 	}
 	return (1);

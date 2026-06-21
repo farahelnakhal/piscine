@@ -1,13 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 22:13:46 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/20 13:44:52 by fqussay          ###   ########.fr       */
+/*   Created: 2026/06/20 14:07:25 by fqussay           #+#    #+#             */
+/*   Updated: 2026/06/20 22:46:44 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
+int	ft_atoi(char *str)
+{
+	int	i;
+	int	k;
+	int	l;
+
+	i = 0;
+	l = 0;
+	k = 1;
+	while (str[i] == 32 || str[i] == '\t')
+		++i;
+	while (str[i] == 45 || str[i] == 43)
+	{
+		if (str[i] == 45)
+			k *= -1;
+		i++;
+	}
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		l = (l * 10) + (str[i] - '0');
+		i++;
+	}
+	return (l * k);
+}

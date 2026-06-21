@@ -1,13 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 22:13:46 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/20 13:44:52 by fqussay          ###   ########.fr       */
+/*   Created: 2026/06/20 13:45:11 by fqussay           #+#    #+#             */
+/*   Updated: 2026/06/20 14:02:14 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
+#include <unistd.h>
+
+void	ft_putnbr(int nb)
+{
+	char	a;
+
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb < 10)
+	{
+		a = nb + '0';
+		write(1, &a, 1);
+	}
+	else
+	{
+		ft_putnbr(nb / 10);
+		a = (nb % 10) + '0';
+		write(1, &a, 1);
+	}
+}

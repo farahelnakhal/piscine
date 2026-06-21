@@ -1,13 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 22:13:46 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/20 13:44:52 by fqussay          ###   ########.fr       */
+/*   Created: 2026/06/21 17:21:18 by fqussay           #+#    #+#             */
+/*   Updated: 2026/06/21 22:10:58 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
+int	ft_iterative_power(int nb, int power)
+{
+	if (power < 0)
+	{
+		return (0);
+	}
+	if (power == 0)
+	{
+		return (1);
+	}
+	while (power != 0)
+	{
+		nb *= nb;
+		power--;
+	}
+	return (nb);
+}

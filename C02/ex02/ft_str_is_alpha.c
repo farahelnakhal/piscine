@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 21:22:04 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/19 12:42:36 by fqussay          ###   ########.fr       */
+/*   Created: 2026/06/15 12:29:35 by username          #+#    #+#             */
+/*   Updated: 2026/06/16 09:22:00 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_str_is_alpha(char *str)
 {
 	int	i;
-	int	j;
 
-	if (to_find[0] == '\0')
-		return (str);
 	i = 0;
 	while (str[i] != '\0')
 	{
-		j = 0;
-		while (str[i + j] != '\0' && str[i + j] == to_find[j])
-			j++;
-		if (to_find[j] == '\0')
-			return (&str[i]);
-		i++;
+		if ((str[i] >= 97 && str[i] <= 122) || (str[i] >= 65 && str[i] <= 90))
+		{
+			i++;
+		}
+		else
+		{
+			return (0);
+		}
 	}
-	return (NULL);
+	return (1);
 }

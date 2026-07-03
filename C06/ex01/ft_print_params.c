@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   a1.c                                              :+:      :+:    :+:    */
+/*   ft_print_params.c                                 :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
-/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*   By: fqussay <fqussay@stuydent.42abudhabi.ae>  #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/06/17 21:59:49 by username         #+#    #+#              */
-/*   Updated: 2026/06/17 22:09:01 by username        ###   ########.fr        */
+/*   Created: 2026/06/22 09:05:02 by fqussay          #+#    #+#              */
+/*   Updated: 2026/06/22 15:27:54 by fqussay         ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char *arg[])
+int	main(int argc, char *argv[])
 {
-	if (argc != 2 || arg[1][0] == '\0')
-	{
-		write(1, "\n", 1);
-		return (0);
-	}
 	int	i;
+	int	j;
 
-	i = 0;
-	while (arg[1][i] != '\0')
+	j = 1;
+	while (j < argc)
 	{
-		if (arg[1][i] == 90 || arg[1][i] == 122)
+		i = 0;
+		while (argv[j][i] != '\0')
 		{
-			arg[1][i] -= 25;
+			write(1, &(argv[j][i]), 1);
+			i++;
 		}
-		else
-		{
-			arg[1][i] += 1;
-		}
-		write(1, &(arg[1][i]), 1);
-		i++;
+		write(1, "\n", 1);
+		j++;
 	}
-	return (0);
 }

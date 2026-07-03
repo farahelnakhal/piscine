@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 21:22:04 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/19 12:42:36 by fqussay          ###   ########.fr       */
+/*   Created: 2026/06/16 10:06:25 by username          #+#    #+#             */
+/*   Updated: 2026/06/16 12:18:40 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-char	*ft_strstr(char *str, char *to_find)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	src_len;
 
-	if (to_find[0] == '\0')
-		return (str);
 	i = 0;
-	while (str[i] != '\0')
+	src_len = 0;
+	while (src[src_len] != '\0')
+		src_len++;
+	if (size > 0)
 	{
-		j = 0;
-		while (str[i + j] != '\0' && str[i + j] == to_find[j])
-			j++;
-		if (to_find[j] == '\0')
-			return (&str[i]);
-		i++;
+		while (i < size - 1 && src[i] != '\0')
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	return (NULL);
+	return (src_len);
 }

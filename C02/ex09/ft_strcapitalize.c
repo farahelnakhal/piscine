@@ -1,33 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 21:22:04 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/19 12:42:36 by fqussay          ###   ########.fr       */
+/*   Created: 2026/06/15 16:14:54 by username          #+#    #+#             */
+/*   Updated: 2026/06/16 12:18:04 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+int	is_alnum(char *str, int i)
+{
+	if (str[i] >= 'a' && str[i] <= 'z')
+		return (1);
+	if (str[i] >= 'A' && str[i] <= 'Z')
+		return (1);
+	if (str[i] >= '0' && str[i] <= '9')
+		return (1);
+	return (0);
+}
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strcapitalize(char *str)
 {
 	int	i;
-	int	j;
 
-	if (to_find[0] == '\0')
-		return (str);
 	i = 0;
 	while (str[i] != '\0')
 	{
-		j = 0;
-		while (str[i + j] != '\0' && str[i + j] == to_find[j])
-			j++;
-		if (to_find[j] == '\0')
-			return (&str[i]);
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			if (i == 0 || !is_alnum(str, i - 1))
+				str[i] -= 32;
+		}
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			if (i > 0 && is_alnum(str, i - 1))
+				str[i] += 32;
+		}
 		i++;
 	}
-	return (NULL);
+	return (str);
 }

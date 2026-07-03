@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 21:22:04 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/19 12:42:36 by fqussay          ###   ########.fr       */
+/*   Created: 2026/06/15 14:14:46 by username          #+#    #+#             */
+/*   Updated: 2026/06/16 12:17:44 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
-	int	j;
 
-	if (to_find[0] == '\0')
-		return (str);
 	i = 0;
 	while (str[i] != '\0')
 	{
-		j = 0;
-		while (str[i + j] != '\0' && str[i + j] == to_find[j])
-			j++;
-		if (to_find[j] == '\0')
-			return (&str[i]);
+		if (str[i] >= 65 && str[i] <= 90)
+			str[i] += 32;
 		i++;
 	}
-	return (NULL);
+	return (str);
 }

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: fqussay <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 21:10:16 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/19 12:48:08 by fqussay          ###   ########.fr       */
+/*   Created: 2026/06/12 13:15:57 by fqussay           #+#    #+#             */
+/*   Updated: 2026/06/12 13:16:03 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	int	i;
+#include <unistd.h>
 
-	i = 0;
-	if (n == 0)
+void	ft_is_negative(int n)
+{
+	if (n >= 0)
 	{
-		return (0);
+		write(1, "P", 1);
 	}
-	while (s1[i] && s2[i] && s1[i] == s2[i] && (unsigned int) i < n - 1)
+	if (n < 0)
 	{
-		i++;
+		write(1, "N", 1);
 	}
-	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

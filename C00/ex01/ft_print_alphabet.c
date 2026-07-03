@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: fqussay <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 21:10:16 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/19 12:48:08 by fqussay          ###   ########.fr       */
+/*   Created: 2026/06/12 13:08:50 by fqussay           #+#    #+#             */
+/*   Updated: 2026/06/12 13:09:00 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	int	i;
+#include <unistd.h>
 
-	i = 0;
-	if (n == 0)
+void	ft_print_alphabet(void)
+{
+	int	c;
+
+	c = 'a';
+	while (c != 123)
 	{
-		return (0);
+		write(1, &c, 1);
+		c++;
 	}
-	while (s1[i] && s2[i] && s1[i] == s2[i] && (unsigned int) i < n - 1)
-	{
-		i++;
-	}
-	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

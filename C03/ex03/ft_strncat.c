@@ -6,7 +6,7 @@
 /*   By: fqussay <fqussay@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:20:14 by fqussay           #+#    #+#             */
-/*   Updated: 2026/06/18 21:21:51 by fqussay          ###   ########.fr       */
+/*   Updated: 2026/06/19 09:30:52 by fqussay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		i++;
 	}
 	j = 0;
-	while (src[j] != '\0' || nb != 0)
+	while (src[j] != '\0' && nb != 0)
 	{
 		dest[i] = src[j];
 		j++;

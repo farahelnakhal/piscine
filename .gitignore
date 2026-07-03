@@ -55,4 +55,4 @@ dkms.conf
 *.dwo
 
 #mac files
-.DS_store
+.DS_Store
